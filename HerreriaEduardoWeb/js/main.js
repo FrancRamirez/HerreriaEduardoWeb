@@ -26,3 +26,34 @@ const counterObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.5 });
 
 counters.forEach(c => counterObserver.observe(c));
+
+// ── Slider de ubicación ──
+let currentSlide = 0;
+const totalSlides = 2;
+
+function updateSlider() {
+  const track = document.getElementById('locationTrack');
+  if (!track) return;
+  track.style.transform = `translateX(-${currentSlide * 50}%)`;
+  document.querySelectorAll('.slider-dot').forEach((dot, i) => {
+    dot.classList.toggle('active', i === currentSlide);
+  });
+}
+
+window.slideLocation = function(dir) {
+  currentSlide = (currentSlide + dir + totalSlides) % totalSlides;
+  updateSlider();
+};
+
+window.goToSlide = function(index) {
+  currentSlide = index;
+  updateSlider();
+};
+
+// ── Play/pause videos en project-cards al hover ──
+document.querySelectorAll('.project-card').forEach(card => {
+  const video = card.querySelector('.project-video');
+  if (!video) return;
+  card.addEventListener('mouseenter', () => video.play());
+  card.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
+});

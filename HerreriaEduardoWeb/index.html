@@ -42,7 +42,7 @@
       <div class="owner-left">
         <div class="section-label">Acerca de mi</div>
         <div class="owner-profile">
-          <img src="assets/images/Eduardo.jpeg" alt="Eduardo" class="owner-avatar" />
+          <div><img src="assets/images/Eduardo.jpeg" alt="Eduardo" class="owner-avatar" /></div>
           <div>
             <div class="owner-name">Eduardo Ramírez</div>
             <div class="owner-since">Herrero desde 2014</div>
@@ -132,6 +132,48 @@
         <div class="project-info">
           <div class="project-title">Puerta</div>
           <div class="project-desc">Puerta hecho en chapa micro perforada.</div>
+        </div>
+      </div>
+
+      <!-- Diseños de mesa -->
+      <div class="project-card">
+        <div class="project-img-placeholder project-video-placeholder">
+          <video class="project-video" muted loop playsinline preload="metadata">
+            <source src="assets/video/Diseños_de_mesa.mp4" type="video/mp4" />
+          </video>
+          <span class="media-badge">▶ VIDEO</span>
+        </div>
+        <div class="project-info">
+          <div class="project-title">Diseños de mesa</div>
+          <div class="project-desc">Distintos diseños de mesa en hierro.</div>
+        </div>
+      </div>
+
+      <!-- Protección compresor -->
+      <div class="project-card">
+        <div class="project-img-placeholder project-video-placeholder">
+          <video class="project-video" muted loop playsinline preload="metadata">
+            <source src="assets/video/Protección_para_el_compresor_de_aire.mp4" type="video/mp4" />
+          </video>
+          <span class="media-badge">▶ VIDEO</span>
+        </div>
+        <div class="project-info">
+          <div class="project-title">Protección compresor</div>
+          <div class="project-desc">Protección metálica para compresor de aire.</div>
+        </div>
+      </div>
+
+      <!-- Reja corrediza -->
+      <div class="project-card">
+        <div class="project-img-placeholder project-video-placeholder">
+          <video class="project-video" muted loop playsinline preload="metadata">
+            <source src="assets/video/Reja_corrediza.mp4" type="video/mp4" />
+          </video>
+          <span class="media-badge">▶ VIDEO</span>
+        </div>
+        <div class="project-info">
+          <div class="project-title">Puerta corrediza</div>
+          <div class="project-desc">Puerta corrediza de hierro.</div>
         </div>
       </div>
 
@@ -232,27 +274,5 @@
   </a>
 
   <script src="js/main.js"></script>
-  <script>
-    // ── Slider de ubicación ──
-    let currentSlide = 0;
-    const totalSlides = 2;
-
-    function updateSlider() {
-      document.getElementById('locationTrack').style.transform = `translateX(-${currentSlide * 50}%)`;
-      document.querySelectorAll('.slider-dot').forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentSlide);
-      });
-    }
-
-    function slideLocation(dir) {
-      currentSlide = (currentSlide + dir + totalSlides) % totalSlides;
-      updateSlider();
-    }
-
-    function goToSlide(index) {
-      currentSlide = index;
-      updateSlider();
-    }
-  </script>
 </body>
 </html>
