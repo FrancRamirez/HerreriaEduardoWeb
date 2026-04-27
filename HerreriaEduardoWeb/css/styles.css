@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════
-   Herrería Eduardo — styles.css
+   Herrería Artística Eduardo — styles.css
    ════════════════════════════════════════ */
 
 /* ── Variables ── */
@@ -138,7 +138,7 @@ nav {
 }
 
 /* ══════════════════════════════
-   SECCIÓN: ACERCA DE MI
+   SECCIÓN: SOBRE EL DUEÑO
 ══════════════════════════════ */
 .section-owner {
   background: var(--gray-dark);
@@ -258,7 +258,7 @@ nav {
 .video-placeholder svg { width: 40px; height: 40px; opacity: .35; fill: var(--white); }
 
 /* ══════════════════════════════
-   SECCIÓN: NUESTROS PROYECTOS
+   SECCIÓN: NUESTRO TRABAJO
 ══════════════════════════════ */
 .section-work {
   background: var(--black);
@@ -302,6 +302,12 @@ nav {
   width: 100%;
   aspect-ratio: 4/5;
   object-fit: cover;
+  transition: object-fit .0s, transform .3s ease;
+}
+
+.project-card:hover .project-img {
+  object-fit: contain;
+  background: #000;
 }
 
 .project-img-placeholder {
@@ -318,6 +324,45 @@ nav {
   gap: 8px;
 }
 .project-img-placeholder svg { width: 32px; height: 32px; fill: currentColor; opacity: .4; }
+
+/* ── Cards de video ── */
+.project-video-placeholder {
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+
+.project-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: object-fit .0s;
+}
+
+.project-card:hover .project-video {
+  object-fit: contain;
+}
+
+.media-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(139,0,0,.85);
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+  font-size: .65rem;
+  letter-spacing: .12em;
+  padding: 3px 8px;
+  border-radius: 3px;
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity .2s;
+}
+
+.project-card:hover .media-badge {
+  opacity: 0;
+}
 
 .project-info {
   padding: 18px 20px;
@@ -351,13 +396,22 @@ nav {
    SECCIÓN: ESTADÍSTICAS
 ══════════════════════════════ */
 .section-stats {
-  background: var(--red-dark);
-  background-image:
-    repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,.15) 3px, rgba(0,0,0,.15) 4px);
+  position: relative;
+  background: url('../assets/images/Fondo_Herreria.png') center/cover no-repeat;
   padding: 60px;
+  overflow: hidden;
+}
+
+.section-stats::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,.55);
+  pointer-events: none;
 }
 
 .stats-inner {
+  position: relative;
+  z-index: 1;
   max-width: 900px;
   margin: 0 auto;
   display: grid;
@@ -391,7 +445,7 @@ nav {
 }
 
 /* ══════════════════════════════
-   SECCIÓN: CONTACTANOS
+   SECCIÓN: CONTACTO
 ══════════════════════════════ */
 .section-contact {
   background: var(--gray-dark);
@@ -535,6 +589,7 @@ nav {
   letter-spacing: .04em;
 }
 
+/* mapa viejo — ya no se usa pero se mantiene por si acaso */
 .map-wrapper {
   border-radius: 6px;
   overflow: hidden;
@@ -622,7 +677,7 @@ footer::before {
   .section-stats { padding: 50px 24px; }
 }
 
-/* ── Animations ── */
+/* ── Animaciones ── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -633,7 +688,7 @@ footer::before {
 .delay-3 { animation-delay: .34s; }
 
 /* ══════════════════════════════
-   WHATSAPP FLOAT
+   WHATSAPP FLOTANTE
 ══════════════════════════════ */
 .whatsapp-float {
   position: fixed;
