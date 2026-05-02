@@ -3,295 +3,332 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Herrería Eduardo</title>
+  <title>Herrería Eduardo — Trabajos en hierro a medida</title>
+  <meta name="description" content="Herrería Artística Eduardo — Fabricación a medida de portones, rejas, puertas, parrillas, pérgolas y estructuras metálicas. Desde 2014 en Gral. Pacheco, Buenos Aires." />
+  <meta name="keywords" content="herrería, portones, rejas, puertas de hierro, parrillas, pérgolas, estructuras metálicas, Gral. Pacheco, Buenos Aires" />
+  <meta name="author" content="Herrería Artística Eduardo" />
+  <meta property="og:title" content="Herrería Eduardo — Trabajos en hierro a medida" />
+  <meta property="og:description" content="Fabricación a medida de portones, rejas, puertas, parrillas y más. Desde 2014 en Gral. Pacheco, Buenos Aires." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://herreriaeduardo.com.ar" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png" />
-  <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
 
-  <!-- ══ HEADER ══ -->
-  <header id="header">
-    <nav class="nav">
+  <!-- ══ NAV ══ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#inicio" class="nav-logo">
+        <img src="assets/images/Logo.jpeg" alt="Logo Herrería Eduardo" />
+      </a>
       <div class="nav-links">
-        <a href="#owner">Acerca de mí</a>
-        <a href="#projects">Nuestros Proyectos</a>
-        <a href="#contact">Contactanos</a>
+        <a href="#inicio" class="nav-link active">Inicio</a>
+        <a href="#trabajos" class="nav-link">Trabajos</a>
+        <a href="#nosotros" class="nav-link">Sobre nosotros</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
       </div>
-      <div class="nav-socials">
-        <a href="https://wa.me/1136327334" target="_blank" rel="noopener" title="WhatsApp">
-          <img src="assets/images/Whatsapp.png" alt="WhatsApp" />
-        </a>
-        <a href="https://www.instagram.com/herreria_eduardo_/" target="_blank" rel="noopener" title="Instagram">
-          <img src="assets/images/Instagram.png" alt="Instagram" />
-        </a>
-        <a href="https://www.facebook.com/groups/265156867434486/posts/1904904830126340/" target="_blank" rel="noopener" title="Facebook">
-          <img src="assets/images/Facebook.png" alt="Facebook" />
-        </a>
+      <div class="nav-right">
+        <img src="assets/images/Whatsapp.png" alt="WA" class="nav-wa-icon" />
+        <span class="nav-phone">11 3632-7334</span>
       </div>
-    </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
 
-    <div class="header-body">
-      <div class="hero-slider-col">
-        <div class="hero-slider">
-          <div class="hero-slides" id="heroSlides">
-            <div class="hero-slide"><img src="assets/images/Previa.jpeg" alt="Pérgola" /></div>
-            <div class="hero-slide"><img src="assets/images/Porton.jpeg" alt="Portón" /></div>
-            <div class="hero-slide"><img src="assets/images/Reja.jpeg" alt="Reja" /></div>
+  <!-- ══ INICIO ══ -->
+  <section class="section-inicio" id="inicio">
+    <div class="inicio-left">
+      <p class="inicio-tagline">Diseño, Calidad y resistencia</p>
+      <h1 class="inicio-title">HERRERIA<br>EDUARDO</h1>
+      <p class="inicio-desc">
+        Fabricamos frentes de parrilla, portones, rejas,<br>
+        escaleras y mucho mas.<br>
+        Trabajamos personalizados con terminaciones<br>
+        de alto nivel
+      </p>
+      <div class="inicio-features">
+        <div class="feat-item">
+          <div class="feat-icon">
+            <img src="assets/images/Max_Durabilidad.png" alt="Durabilidad" onerror="this.parentElement.innerHTML='🔩'" />
           </div>
-          <button class="hero-arrow hero-arrow-left" onclick="heroSlide(-1)" aria-label="Anterior">&#8592;</button>
-          <button class="hero-arrow hero-arrow-right" onclick="heroSlide(1)" aria-label="Siguiente">&#8594;</button>
+          <p class="feat-title">Maxima durabilidad</p>
+          <p class="feat-sub">Materiales de primera calidad</p>
         </div>
-      </div>
-
-      <div class="hero-center-col">
-        <img src="assets/images/Logo.jpeg" alt="Logo Herrería Eduardo" class="hero-logo fade-up" />
-        <h1 class="fade-up delay-1">Herrería<br>Eduardo</h1>
-        <p class="hero-sub fade-up delay-2">Trabajos en hierro a medida</p>
-      </div>
-
-      <div class="hero-right-col">
-        <p class="accept-label">Aceptamos tarjetas</p>
-        <div class="cards-grid">
-          <div class="card-item"><img src="assets/images/Visa.png" alt="Visa" /></div>
-          <div class="card-item"><img src="assets/images/Mastercard.png" alt="Mastercard" /></div>
-          <div class="card-item"><img src="assets/images/MercadoPago.png" alt="MercadoPago" /></div>
-          <div class="card-item"><img src="assets/images/NaranjaX.png" alt="NaranjaX" /></div>
-          <div class="card-item"><img src="assets/images/AmericanExpress.png" alt="AmericanExpress" /></div>
-          <div class="card-item"><img src="assets/images/Paypal.png" alt="Paypal" /></div>
+        <div class="feat-item">
+          <div class="feat-icon">
+            <img src="assets/images/Trabajo_garantizado.png" alt="Garantizado" onerror="this.parentElement.innerHTML='✅'" />
+          </div>
+          <p class="feat-title">Trabajo garantizado</p>
+          <p class="feat-sub">Calidad que respalda nuestro nombre</p>
+        </div>
+        <div class="feat-item">
+          <div class="feat-icon">
+            <img src="assets/images/A_medida_y_personalizado.png" alt="A medida" onerror="this.parentElement.innerHTML='📐'" />
+          </div>
+          <p class="feat-title">A medida y personalizado</p>
+          <p class="feat-sub">Diseños únicos según tu necesidad</p>
         </div>
       </div>
     </div>
-  </header>
-
-  <!-- ══ ACERCA DE MÍ ══ -->
-  <section class="section-owner" id="owner">
-    <h1 class="section-title">Acerca de mí</h1>
-    <div class="owner-inner">
-
-      <div class="owner-left">
-        <img src="assets/images/Eduardo.jpeg" alt="Eduardo Ramírez" class="owner-avatar" />
-        <div class="owner-text">
-          <h2>Eduardo Ramírez</h2>
-          <p>Me especializo en la fabricación a medida de cerramientos, rejas, portones, puertas, parrillas y mucho más.</p>
-        </div>
-      </div>
-
-      <!-- Derecha: slider de fotos/videos -->
-      <div class="owner-right">
-        <div class="owner-slider">
-          <div class="owner-slides" id="ownerSlides">
-            <div class="owner-slide">
-              <video controls controlsList="nodownload">
-                <source src="assets/video/Presentacion.mp4" type="video/mp4" />
-              </video>
-            </div>
-            <div class="owner-slide">
-              <img src="assets/images/Eduardo_1.jpeg" alt="Trabajo 1" />
-            </div>
-            <div class="owner-slide">
-              <img src="assets/images/Eduardo_2.jpeg" alt="Trabajo 2" />
-            </div>
-          </div>
-          <button class="owner-arrow owner-arrow-left" onclick="ownerSlide(-1)" aria-label="Anterior">&#9666;</button>
-          <button class="owner-arrow owner-arrow-right" onclick="ownerSlide(1)" aria-label="Siguiente">&#9656;</button>
-        </div>
-      </div>
-
+    <div class="inicio-right">
+      <img src="assets/images/Parrilla_Moderna.jpeg" alt="Fondo herrería" class="inicio-bg-img" onerror="this.style.display='none'" />
     </div>
   </section>
 
-  <!-- ══ NUESTROS PROYECTOS ══ -->
-  <section class="section-projects" id="projects">
-    <h2 class="section-title">Nuestros Proyectos</h2>
-
-    <div class="projects-wrapper">
-      <button class="proj-arrow proj-arrow-left" onclick="projectsSlide(-1)" aria-label="Anterior">&#8592;</button>
-
-      <div class="projects-viewport">
-        <div class="projects-track" id="projectsTrack">
+  <!-- ══ TRABAJOS ══ -->
+  <section class="section-trabajos" id="trabajos">
+    <h2 class="section-title">Trabajos</h2>
+    <div class="trabajos-wrapper">
+      <button class="trab-arrow trab-arrow-left" onclick="trabajosSlide(-1)" aria-label="Anterior">&#9664;</button>
+      <div class="trabajos-viewport">
+        <div class="trabajos-track" id="trabajosTrack">
 
           <!-- Página 1 -->
-          <div class="projects-page">
-            <div class="proj-grid">
-              <div class="proj-item">
+          <div class="trabajos-page">
+            <div class="trab-grid">
+              <div class="trab-item" data-src="assets/images/Reja.jpeg" data-type="image">
                 <img src="assets/images/Reja.jpeg" alt="Reja de hierro" />
-                <span>Reja de hierro</span>
+                <div class="trab-info">
+                  <span>Reja de hierro</span>
+                  <button class="btn-ver">Ver mas</button>
+                </div>
               </div>
-              <div class="proj-item">
+              <div class="trab-item" data-src="assets/images/Techo.jpeg" data-type="image">
                 <img src="assets/images/Techo.jpeg" alt="Techo Transparente" />
-                <span>Techo transparente</span>
+                <div class="trab-info">
+                  <span>Techo transparente</span>
+                  <button class="btn-ver">Ver mas</button>
+                </div>
               </div>
-              <div class="proj-item">
+              <div class="trab-item" data-src="assets/images/Ventana_verde_reja.jpeg" data-type="image">
                 <img src="assets/images/Ventana_verde_reja.jpeg" alt="Ventana rejas verde" />
-                <span>Ventana con rejas verde</span>
+                <div class="trab-info">
+                  <span>Ventana con rejas</span>
+                  <button class="btn-ver">Ver mas</button>
+                </div>
               </div>
-              <div class="proj-item">
+              <div class="trab-item" data-src="assets/images/Puerta_Verde.jpeg" data-type="image">
                 <img src="assets/images/Puerta_Verde.jpeg" alt="Puerta Verde" />
-                <span>Puerta de metal</span>
+                <div class="trab-info">
+                  <span>Puerta de metal</span>
+                  <button class="btn-ver">Ver mas</button>
+                </div>
               </div>
-              <div class="proj-item">
+              <div class="trab-item" data-src="assets/images/Modulo_Cocina.jpeg" data-type="image">
                 <img src="assets/images/Modulo_Cocina.jpeg" alt="Modulo de cocina" />
-                <span>Modulo de cocina para quincho</span>
+                <div class="trab-info">
+                  <span>Módulo de cocina</span>
+                  <button class="btn-ver">Ver mas</button>
+                </div>
               </div>
-              <div class="proj-item">
-                <img src="assets/images/Estante_Divisoria.jpeg" alt="Estante Divisoria" />
-                <span>Estante divisoria</span>
-              </div>
-              <div class="proj-item">
+              <div class="trab-item" data-src="assets/images/Parrilla_Moderna.jpeg" data-type="image">
                 <img src="assets/images/Parrilla_Moderna.jpeg" alt="Parrilla Moderna" />
-                <span>Parrilla Moderna</span>
+                <div class="trab-info">
+                  <span>Parrilla Moderna</span>
+                  <button class="btn-ver">Ver mas</button>
+                </div>
               </div>
-              <div class="proj-item">
-                <img src="assets/images/Porton.jpeg" alt="Porton" />
-                <span>Porton de metal</span>
+            </div>
+          </div>
+
+          <!-- Página 2 -->
+          <div class="trabajos-page">
+            <div class="trab-grid">
+              <div class="trab-item" data-src="assets/images/Porton.jpeg" data-type="image">
+                <img src="assets/images/Porton.jpeg" alt="Portón" />
+                <div class="trab-info">
+                  <span>Portón de metal</span>
+                  <button class="btn-ver">Ver mas</button>
+                </div>
               </div>
-              <div class="proj-item proj-item--video">
+              <div class="trab-item" data-src="assets/images/Estante_Divisoria.jpeg" data-type="image">
+                <img src="assets/images/Estante_Divisoria.jpeg" alt="Estante Divisoria" />
+                <div class="trab-info">
+                  <span>Estante divisoria</span>
+                  <button class="btn-ver">Ver mas</button>
+                </div>
+              </div>
+              <div class="trab-item" data-src="assets/images/Techo_entrada.jpeg" data-type="image">
+                <img src="assets/images/Techo_entrada.jpeg" alt="Entrada rejada" />
+                <div class="trab-info">
+                  <span>Entrada rejada y techo</span>
+                  <button class="btn-ver">Ver mas</button>
+                </div>
+              </div>
+              <div class="trab-item trab-item--video" data-src="assets/video/Reja_corrediza.mp4" data-type="video">
                 <video muted loop playsinline preload="metadata">
                   <source src="assets/video/Reja_corrediza.mp4" type="video/mp4" />
                 </video>
-                <span>Reja corrediza</span>
+                <div class="trab-info">
+                  <span>Reja corrediza</span>
+                  <button class="btn-ver">Ver mas</button>
+                </div>
               </div>
-              <div class="proj-item proj-item--video">
-                <video muted loop playsinline preload="metadata">
-                  <source src="assets/video/Gancho_Tele.mp4" type="video/mp4" />
-                </video>
-                <span>Gancho para televisor</span>
-              </div>
-              <div class="proj-item proj-item--video">
-                <video muted loop playsinline preload="metadata">
-                  <source src="assets/video/Mueble_Parrilla.mp4" type="video/mp4" />
-                </video>
-                <span>Mueble para parrilla</span>
-              </div>
-              <div class="proj-item proj-item--video">
+              <div class="trab-item trab-item--video" data-src="assets/video/Puerta_Corrediza.mp4" data-type="video">
                 <video muted loop playsinline preload="metadata">
                   <source src="assets/video/Puerta_Corrediza.mp4" type="video/mp4" />
                 </video>
-                <span>Puerta corrediza</span>
+                <div class="trab-info">
+                  <span>Puerta corrediza</span>
+                  <button class="btn-ver">Ver mas</button>
+                </div>
               </div>
-            </div>
-          </div>
-
-          <!-- Página 2 (agregar más proyectos acá) -->
-          <div class="projects-page">
-            <div class="proj-grid">
-              <div class="proj-item proj-item--empty">
-                <img src="assets/images/Techo_entrada.jpeg" alt="Techo y rejas de entrada" />
-                <span>Entrada rejada y techo</span>
+              <div class="trab-item trab-item--video" data-src="assets/video/Mueble_Parrilla.mp4" data-type="video">
+                <video muted loop playsinline preload="metadata">
+                  <source src="assets/video/Mueble_Parrilla.mp4" type="video/mp4" />
+                </video>
+                <div class="trab-info">
+                  <span>Mueble para parrilla</span>
+                  <button class="btn-ver">Ver mas</button>
+                </div>
               </div>
-            </div>
-          </div>
-
-
-          <!-- Página 3 -->
-          <div class="projects-page">
-            <div class="proj-grid">
             </div>
           </div>
 
         </div>
       </div>
-
-      <button class="proj-arrow proj-arrow-right" onclick="projectsSlide(1)" aria-label="Siguiente">&#8594;</button>
+      <button class="trab-arrow trab-arrow-right" onclick="trabajosSlide(1)" aria-label="Siguiente">&#9654;</button>
     </div>
-
-    <div class="proj-dots" id="projDots">
-      <span class="proj-dot active" onclick="goToProjectPage(0)"></span>
-      <span class="proj-dot" onclick="goToProjectPage(1)"></span>
-      <span class="proj-dot" onclick="goToProjectPage(2)"></span>
+    <div class="trab-dots" id="trabDots">
+      <span class="trab-dot active" onclick="goToTrabPage(0)"></span>
+      <span class="trab-dot" onclick="goToTrabPage(1)"></span>
     </div>
   </section>
 
-  <!-- ══ ESTADÍSTICAS ══ -->
-  <section class="section-stats" id="stats">
-    <div class="stats-bg-img">
-      <img src="assets/images/Fondo_Herreria.png" alt="" aria-hidden="true" />
-      <div class="stats-overlay"></div>
-    </div>
-    <div class="stats-inner">
-      <div class="stat-item">
-        <div class="stat-label">Proyectos:</div>
-        <div class="stat-number" data-target="100">0<span>+</span></div>
-        <div class="stat-sublabel">Proyectos terminados</div>
+  <!-- ══ SOBRE NOSOTROS ══ -->
+  <section class="section-nosotros" id="nosotros">
+    <h2 class="section-title">Sobre nosotros</h2>
+    <div class="nosotros-inner">
+      <div class="nosotros-block">
+        <h3>¿Quiénes somos?</h3>
+        <p>Somos apasionados del metal y la transformación. Con años de experiencia en el oficio, nuestro taller nació con el propósito de fusionar la técnica tradicional de la herrería con las necesidades del diseño moderno. No solo trabajamos con hierro; creamos piezas que aportan seguridad, estilo y carácter a cada espacio.</p>
       </div>
-      <div class="stat-item">
-        <div class="stat-label">Equipo:</div>
-        <div class="stat-number" data-target="3">0</div>
-        <div class="stat-sublabel">Personas en el equipo</div>
+      <div class="nosotros-block">
+        <h3>¿Qué hacemos?</h3>
+        <p>Nos dedicamos a la fabricación de estructuras metálicas a medida, desde mobiliario de diseño y objetos decorativos hasta soluciones arquitectónicas complejas. Cada proyecto es único: escuchamos tus ideas y las materializamos con precisión milimétrica.</p>
       </div>
-      <div class="stat-item">
-        <div class="stat-label">Calificaciones:</div>
-        <div class="stat-stars">★★★★★</div>
-        <div class="stat-sublabel">Calificación de clientes</div>
+      <div class="nosotros-block">
+        <h3>Nuestro compromiso:</h3>
+        <p>Creemos en la durabilidad. Por eso, seleccionamos los mejores materiales y aplicamos acabados de alta calidad que garantizan que nuestras piezas resistan el paso del tiempo y el uso diario.</p>
       </div>
     </div>
   </section>
 
-  <!-- ══ CONTACTO Y UBICACION ══ -->
-  <section class="section-contact" id="contact">
-    <div class="contact-inner">
-
-      <!-- Izquierda -->
-      <div class="contact-left">
-        <h2>Contactanos</h2>
-        <p>¿Querés negociar? Contactanos y responderemos a la brevedad.</p>
-        <div class="contact-buttons">
-          <a href="https://wa.me/1136327334" class="btn-wa" target="_blank" rel="noopener">WhatsApp</a>
-          <a href="mailto:eduelcordobesef@gmail.com" class="btn-gmail">Gmail</a>
+  <!-- ══ ¿POR QUÉ ELEGIRNOS? ══ -->
+  <section class="section-porque" id="porque">
+    <h2 class="section-title">¿Porque elegirnos?</h2>
+    <div class="porque-grid">
+      <div class="porque-item">
+        <div class="porque-icon">
+          <img src="assets/images/Experiencia.png" alt="Experiencia" onerror="this.parentElement.innerHTML='⚙️'" />
         </div>
-        <p class="contact-thanks">Muchas gracias por visitar nuestra página.</p>
+        <p class="porque-desc">Años de experiencia en herreria de calidad</p>
+      </div>
+      <div class="porque-item">
+        <div class="porque-icon">
+          <img src="assets/images/Calidad.png" alt="Calidad" onerror="this.parentElement.innerHTML='🏆'" />
+        </div>
+        <p class="porque-desc">Materiales resistentes y terminaciones impecables</p>
+      </div>
+      <div class="porque-item">
+        <div class="porque-icon">
+          <img src="assets/images/Diseño_Unico.png" alt="Diseño Único" onerror="this.parentElement.innerHTML='📐'" />
+        </div>
+        <p class="porque-desc">Trabajos a medida pensados para cada cliente</p>
+      </div>
+      <div class="porque-item">
+        <div class="porque-icon">
+          <img src="assets/images/Compromiso.png" alt="Compromiso" onerror="this.parentElement.innerHTML='🤝'" />
+        </div>
+        <p class="porque-desc">Cumplimos con los tiempos y garantizamos nuestro trabajo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTACTO + UBICACIÓN + MÉTODO DE PAGO ══ -->
+  <section class="section-contacto" id="contacto">
+    <div class="contacto-inner">
+
+      <!-- Contacto -->
+      <div class="contacto-col contacto-col--contact">
+        <h2 class="contacto-title">Contactanos</h2>
+        <p class="contacto-sub">¿Querés negociar? Contactanos y responderemos a la brevedad.</p>
+        <div class="contacto-btns">
+          <a href="https://wa.me/1136327334" class="btn-wa" target="_blank" rel="noopener">
+            <img src="assets/images/Whatsapp_2.png" alt="" /> WhatsApp
+          </a>
+          <a href="mailto:eduelcordobesef@gmail.com" class="btn-mail">
+            <img src="assets/images/Gmail.png" alt="" /> Gmail
+          </a>
+        </div>
+        <p class="contacto-thanks">Muchas gracias por visitar nuestra página.</p>
       </div>
 
-      <!-- Derecha: slider mapa / imagen -->
-      <div class="contact-right">
-        <h1 class="section-title section-title--white">Ubicación</h1>
-        <div class="contact-slider">
-          <div class="contact-track" id="contactTrack">
-            <div class="contact-slide">
+      <!-- Ubicación -->
+      <div class="contacto-col contacto-col--ubicacion">
+        <h2 class="contacto-title">Ubicación</h2>
+        <div class="ubicacion-slider">
+          <div class="ubi-track" id="ubiTrack">
+            <div class="ubi-slide">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0!2d-58.6524665!3d-34.4523868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDI3JzA4LjYiUyA1OMKwMzknMDguOSJX!5e0!3m2!1ses!2sar!4v1714000000000!5m2!1ses!2sar"
                 allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
               </iframe>
             </div>
-            <div class="contact-slide">
-              <img src="assets/images/Local_abierto.jpeg" alt="Local Herrería Eduardo" />
+            <div class="ubi-slide">
+              <img src="assets/images/Local_abierto.jpeg" alt="Local abierto" />
             </div>
-            <div class="contact-slide">
-              <img src="assets/images/Local_cerrado.jpeg" alt="Local Herrería Eduardo" />
+            <div class="ubi-slide">
+              <img src="assets/images/Local_cerrado.jpeg" alt="Local cerrado" />
             </div>
           </div>
-          <button class="contact-arrow contact-arrow-left" onclick="contactSlide(-1)" aria-label="Anterior">&#9666;</button>
-          <button class="contact-arrow contact-arrow-right" onclick="contactSlide(1)" aria-label="Siguiente">&#9656;</button>
+          <button class="ubi-arrow ubi-arrow-left" onclick="ubiSlide(-1)">&#9666;</button>
+          <button class="ubi-arrow ubi-arrow-right" onclick="ubiSlide(1)">&#9656;</button>
         </div>
-        <p class="contact-address">📍 Av. Constituyentes 1721, Gral. Pacheco, Buenos Aires</p>
+        <p class="ubi-address">📍 Av. Constituyentes 1721, Gral. Pacheco, Buenos Aires</p>
+      </div>
+
+      <!-- Método de pago -->
+      <div class="contacto-col contacto-col--pagos">
+        <h2 class="contacto-title">Método de pago</h2>
+        <div class="pagos-grid">
+          <div class="pago-item"><img src="assets/images/Visa.png" alt="Visa" /></div>
+          <div class="pago-item"><img src="assets/images/Mastercard.png" alt="Mastercard" /></div>
+          <div class="pago-item"><img src="assets/images/MercadoPago.png" alt="MercadoPago" /></div>
+          <div class="pago-item"><img src="assets/images/NaranjaX.png" alt="NaranjaX" /></div>
+          <div class="pago-item"><img src="assets/images/AmericanExpress.png" alt="American Express" /></div>
+          <div class="pago-item"><img src="assets/images/Paypal.png" alt="Paypal" /></div>
+        </div>
       </div>
 
     </div>
   </section>
 
   <!-- ══ FOOTER ══ -->
-  <footer>
+  <footer class="footer">
     <div class="footer-inner">
       <img src="assets/images/Logo.jpeg" alt="Logo Herrería Eduardo" class="footer-logo" />
+      <p class="footer-copy">&copy; 2025 <strong>Herrería Artística Eduardo</strong> · Todos los derechos reservados</p>
       <div class="footer-socials">
         <a href="https://wa.me/1136327334" target="_blank" rel="noopener" title="WhatsApp">
           <img src="assets/images/Whatsapp.png" alt="WhatsApp" />
         </a>
-        <a href="https://www.instagram.com/herreria_eduardo_/" target="_blank" rel="noopener" title="Instagram">
-          <img src="assets/images/Instagram.png" alt="Instagram" />
-        </a>
         <a href="https://www.facebook.com/groups/265156867434486/posts/1904904830126340/" target="_blank" rel="noopener" title="Facebook">
           <img src="assets/images/Facebook.png" alt="Facebook" />
         </a>
+        <a href="https://www.instagram.com/herreria_eduardo_/" target="_blank" rel="noopener" title="Instagram">
+          <img src="assets/images/Instagram.png" alt="Instagram" />
+        </a>
       </div>
-      <p class="footer-copy">&copy; 2025 <strong>Herrería Artística Eduardo</strong> · Todos los derechos reservados</p>
     </div>
   </footer>
 
@@ -301,14 +338,13 @@
     <span>Escribinos al WhatsApp</span>
   </a>
 
-
   <!-- ══ LIGHTBOX ══ -->
-  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-    <button class="lightbox-close" onclick="closeLightbox()">&#10005;</button>
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">&#10005;</button>
     <div class="lightbox-content">
       <img class="lightbox-img" id="lightboxImg" src="" alt="" />
       <video class="lightbox-video" id="lightboxVideo" controls controlsList="nodownload">
-        <source id="lightboxVideoSrc" src="" type="video/mp4" />
+        <source id="lightboxVSrc" src="" type="video/mp4" />
       </video>
     </div>
   </div>
