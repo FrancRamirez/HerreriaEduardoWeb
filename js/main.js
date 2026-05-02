@@ -2,109 +2,85 @@
    Herrería Eduardo — main.js (Rediseño)
    ════════════════════════════════════════ */
 
-/* ── SLIDER HERO (header) ── */
-let heroIndex = 0;
-const heroSlides = document.getElementById('heroSlides');
-const heroTotal  = heroSlides ? heroSlides.children.length : 0;
+/* ── NAVBAR: sticky shadow + mobile toggle ── */
+const navbar = document.getElementById('navbar');
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.querySelector('.nav-links');
 
-window.heroSlide = function(dir) {
-  heroIndex = (heroIndex + dir + heroTotal) % heroTotal;
-  heroSlides.style.transform = `translateX(-${heroIndex * 100}%)`;
-};
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 10);
 
-// Auto-play hero slider cada 4s
-if (heroTotal > 0) {
-  setInterval(() => heroSlide(1), 4000);
-}
+  // Highlight active nav link
+  const sections = ['inicio', 'trabajos', 'nosotros', 'contacto'];
+  let current = '';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && window.scrollY >= el.offsetTop - 90) current = id;
+  });
+  document.querySelectorAll('.nav-link').forEach(a => {
+    a.classList.remove('active');
+    if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+  });
+});
 
-/* ── SLIDER OWNER (acerca de mí) ── */
-let ownerIndex = 0;
-const ownerSlides = document.getElementById('ownerSlides');
-const ownerTotal  = ownerSlides ? ownerSlides.children.length : 0;
+navToggle?.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
 
-window.ownerSlide = function(dir) {
-  ownerIndex = (ownerIndex + dir + ownerTotal) % ownerTotal;
-  ownerSlides.style.transform = `translateX(-${ownerIndex * 100}%)`;
-};
+// Close menu on link click
+document.querySelectorAll('.nav-link').forEach(a => {
+  a.addEventListener('click', () => navLinks.classList.remove('open'));
+});
 
-/* ── SLIDER PROYECTOS (paginado) ── */
-let projectPage = 0;
-const projectsTrack = document.getElementById('projectsTrack');
-const projPages = projectsTrack ? projectsTrack.children.length : 0;
+/* ── TRABAJOS SLIDER ── */
+let trabPage = 0;
+const trabTrack = document.getElementById('trabajosTrack');
+const trabPages = trabTrack ? trabTrack.children.length : 0;
 
-function updateProjectDots() {
-  document.querySelectorAll('.proj-dot').forEach((dot, i) => {
-    dot.classList.toggle('active', i === projectPage);
+function updateTrabDots() {
+  document.querySelectorAll('.trab-dot').forEach((dot, i) => {
+    dot.classList.toggle('active', i === trabPage);
   });
 }
 
-window.projectsSlide = function(dir) {
-  projectPage = (projectPage + dir + projPages) % projPages;
-  projectsTrack.style.transform = `translateX(-${projectPage * 100}%)`;
-  updateProjectDots();
+window.trabajosSlide = function(dir) {
+  trabPage = (trabPage + dir + trabPages) % trabPages;
+  trabTrack.style.transform = `translateX(-${trabPage * 100}%)`;
+  updateTrabDots();
 };
 
-window.goToProjectPage = function(index) {
-  projectPage = index;
-  projectsTrack.style.transform = `translateX(-${projectPage * 100}%)`;
-  updateProjectDots();
+window.goToTrabPage = function(index) {
+  trabPage = index;
+  trabTrack.style.transform = `translateX(-${trabPage * 100}%)`;
+  updateTrabDots();
 };
 
-/* ── SLIDER CONTACTO ── */
-let contactIndex = 0;
-const contactTrack = document.getElementById('contactTrack');
-const contactTotal = contactTrack ? contactTrack.children.length : 0;
+/* ── UBICACIÓN SLIDER ── */
+let ubiIndex = 0;
+const ubiTrack = document.getElementById('ubiTrack');
+const ubiTotal = ubiTrack ? ubiTrack.children.length : 0;
 
-window.contactSlide = function(dir) {
-  contactIndex = (contactIndex + dir + contactTotal) % contactTotal;
-  contactTrack.style.transform = `translateX(-${contactIndex * 100}%)`;
+window.ubiSlide = function(dir) {
+  ubiIndex = (ubiIndex + dir + ubiTotal) % ubiTotal;
+  ubiTrack.style.transform = `translateX(-${ubiIndex * 100}%)`;
 };
 
-/* ── CONTADOR ESTADÍSTICAS ── */
-const counters = document.querySelectorAll('.stat-number[data-target]');
-
-const counterObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    const el     = entry.target;
-    const target = +el.dataset.target;
-    const suffix = el.querySelector('span') ? el.querySelector('span').outerHTML : '';
-    let current  = 0;
-    const step   = Math.ceil(target / 50);
-    const timer  = setInterval(() => {
-      current = Math.min(current + step, target);
-      el.innerHTML = current + suffix;
-      if (current >= target) clearInterval(timer);
-    }, 30);
-    counterObserver.unobserve(el);
-  });
-}, { threshold: 0.5 });
-
-counters.forEach(c => counterObserver.observe(c));
-
-/* ── PLAY/PAUSE VIDEOS EN PROYECTO (hover) ── */
-document.querySelectorAll('.proj-item--video').forEach(item => {
+/* ── VIDEO HOVER EN TRABAJOS ── */
+document.querySelectorAll('.trab-item--video').forEach(item => {
   const video = item.querySelector('video');
   if (!video) return;
   item.addEventListener('mouseenter', () => video.play());
   item.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
 });
 
-/* ── NAV STICKY: sombra al hacer scroll ── */
-const header = document.getElementById('header');
-window.addEventListener('scroll', () => {
-  document.querySelector('.nav').style.boxShadow =
-    window.scrollY > 10 ? '0 2px 12px rgba(0,0,0,0.4)' : 'none';
-});
-
 /* ── LIGHTBOX ── */
 const lightbox      = document.getElementById('lightbox');
 const lightboxImg   = document.getElementById('lightboxImg');
 const lightboxVideo = document.getElementById('lightboxVideo');
-const lightboxVSrc  = document.getElementById('lightboxVideoSrc');
+const lightboxVSrc  = document.getElementById('lightboxVSrc');
+const lightboxClose = document.getElementById('lightboxClose');
 
 function openLightbox(src, type) {
-  // Resetear ambos primero
   lightboxImg.style.display   = 'none';
   lightboxVideo.style.display = 'none';
   lightboxVideo.pause();
@@ -124,33 +100,34 @@ function openLightbox(src, type) {
   document.body.style.overflow = 'hidden';
 }
 
-window.closeLightbox = function(e) {
-  if (e && e.target !== lightbox && !e.target.classList.contains('lightbox-close')) return;
+function closeLightbox() {
   lightbox.classList.remove('active');
   lightboxVideo.pause();
   lightboxVSrc.src = '';
   lightboxVideo.load();
   lightboxImg.src = '';
   document.body.style.overflow = '';
-};
+}
 
-// Cerrar con Escape
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeLightbox({ target: lightbox });
-});
+lightboxClose?.addEventListener('click', closeLightbox);
+lightbox?.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
-// Asignar click a cada proj-item
-document.querySelectorAll('.proj-item').forEach(item => {
-  item.style.cursor = 'pointer';
+// Bind click on each trab-item
+document.querySelectorAll('.trab-item').forEach(item => {
   item.addEventListener('click', () => {
-    const videoEl = item.querySelector('video');
-    const img     = item.querySelector('img');
-    if (videoEl) {
-      const source = videoEl.querySelector('source');
-      const src = source ? source.getAttribute('src') : videoEl.getAttribute('src');
-      openLightbox(src, 'video');
-    } else if (img) {
-      openLightbox(img.getAttribute('src'), 'image');
-    }
+    const src  = item.dataset.src;
+    const type = item.dataset.type;
+    if (src) openLightbox(src, type);
+  });
+});
+// Also bind btn-ver
+document.querySelectorAll('.btn-ver').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    const item = btn.closest('.trab-item');
+    const src  = item?.dataset.src;
+    const type = item?.dataset.type;
+    if (src) openLightbox(src, type);
   });
 });
