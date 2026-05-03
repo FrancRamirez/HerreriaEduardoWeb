@@ -79,7 +79,7 @@ a { text-decoration: none; color: inherit; }
 }
 .nav-link {
   font-family: var(--font-title);
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
   letter-spacing: 1px;
   color: var(--white-off);
@@ -106,7 +106,7 @@ a { text-decoration: none; color: inherit; }
 }
 .nav-phone {
   font-family: var(--font-title);
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--yellow);
   white-space: nowrap;
@@ -135,7 +135,7 @@ a { text-decoration: none; color: inherit; }
    ══════════════════════════════════ */
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(36px, 5vw, 60px);
+  font-size: 32px;
   letter-spacing: 3px;
   text-align: center;
   color: var(--white);
@@ -157,18 +157,38 @@ a { text-decoration: none; color: inherit; }
 .section-inicio {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 100vh;
+  min-height: 80vh;
   padding-top: var(--nav-h);
 }
 
 /* Left */
 .inicio-left {
   background: var(--black);
-  padding: 60px 48px 60px 60px;
+  background-image: url('../assets/images/Fondo_Herreria_2.webp');
+  background-size: cover;
+  background-position: center;
+  padding: 44px 48px 60px 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 24px;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  margin-top: -40px;
+  position: relative;
+}
+
+.inicio-left::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(13,13,13,0.78);
+  z-index: 0;
+}
+
+.inicio-left > * {
+  position: relative;
+  z-index: 1;
 }
 .inicio-tagline {
   font-family: var(--font-title);
@@ -180,13 +200,18 @@ a { text-decoration: none; color: inherit; }
 }
 .inicio-title {
   font-family: var(--font-display);
-  font-size: clamp(56px, 7vw, 100px);
+  font-size: clamp(72px, 9vw, 120px);
   line-height: 0.92;
   letter-spacing: 2px;
   color: var(--white);
 }
 .inicio-desc {
   font-size: 18px;
+  line-height: 1.7;
+  color: var(--gray-light);
+  max-width: 460px;
+  text-align: center;
+}
   line-height: 1.7;
   color: var(--gray-light);
   max-width: 460px;
@@ -198,27 +223,28 @@ a { text-decoration: none; color: inherit; }
   gap: 20px;
   margin-top: 12px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .feat-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   flex: 1;
-  min-width: 110px;
-  max-width: 160px;
+  min-width: 130px;
+  max-width: 180px;
   text-align: center;
 }
 .feat-icon {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   background: transparent;
   border-radius: var(--radius);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  font-size: 28px;
+  font-size: 36px;
 }
 .feat-icon img {
   width: 80%;
@@ -228,14 +254,14 @@ a { text-decoration: none; color: inherit; }
 }
 .feat-title {
   font-family: var(--font-title);
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 700;
   color: var(--white);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 .feat-sub {
-  font-size: 15px;
+  font-size: 18px;
   color: var(--gray);
   line-height: 1.4;
 }
@@ -282,8 +308,9 @@ a { text-decoration: none; color: inherit; }
   align-items: center;
   gap: 0;
   position: relative;
-  max-width: 1100px;
+  max-width: 1400px;
   margin: 0 auto;
+  padding: 0 16px;
 }
 
 .trab-arrow {
@@ -323,7 +350,7 @@ a { text-decoration: none; color: inherit; }
 .trab-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 24px;
   padding: 8px 0;
 }
 
@@ -336,6 +363,7 @@ a { text-decoration: none; color: inherit; }
   transition: transform var(--transition), border-color var(--transition);
   display: flex;
   flex-direction: column;
+  aspect-ratio: 1 / 1;
 }
 .trab-item:hover {
   transform: translateY(-4px);
@@ -344,12 +372,13 @@ a { text-decoration: none; color: inherit; }
 .trab-item img,
 .trab-item video {
   width: 100%;
-  height: 200px;
+  flex: 1;
   object-fit: cover;
   display: block;
+  min-height: 0;
 }
 .trab-info {
-  padding: 12px 14px 14px;
+  padding: 16px 18px 18px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -359,7 +388,7 @@ a { text-decoration: none; color: inherit; }
 }
 .trab-info span {
   font-family: var(--font-title);
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 600;
   color: var(--white);
   text-transform: uppercase;
@@ -369,7 +398,7 @@ a { text-decoration: none; color: inherit; }
   background: var(--yellow);
   color: var(--black);
   font-family: var(--font-title);
-  font-size: 12px;
+  font-size: 18px;
   font-weight: 700;
   padding: 6px 14px;
   border: none;
@@ -660,7 +689,7 @@ a { text-decoration: none; color: inherit; }
   border: 2px solid var(--yellow);
 }
 .footer-copy {
-  font-size: 13px;
+  font-size: 18px;
   color: var(--gray);
   text-align: center;
   flex: 1;
@@ -702,7 +731,7 @@ a { text-decoration: none; color: inherit; }
   border-radius: 40px;
   box-shadow: 0 4px 20px rgba(37,211,102,0.4);
   font-family: var(--font-title);
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 700;
   transition: transform var(--transition), box-shadow var(--transition);
 }
