@@ -212,9 +212,35 @@ a { text-decoration: none; color: inherit; }
   max-width: 460px;
   text-align: center;
 }
-  line-height: 1.7;
-  color: var(--gray-light);
-  max-width: 460px;
+
+/* Botones CTA */
+.inicio-cta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 8px;
+}
+.btn-cta {
+  font-family: var(--font-title);
+  font-size: 18px;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: transform var(--transition), opacity var(--transition);
+  white-space: nowrap;
+}
+.btn-cta:hover { transform: translateY(-2px); opacity: 0.9; }
+.btn-cta--primary {
+  background: var(--yellow);
+  color: var(--black);
+}
+.btn-cta--secondary {
+  background: transparent;
+  color: var(--yellow);
+  border: 2px solid var(--yellow);
 }
 
 /* Features row */
@@ -266,22 +292,32 @@ a { text-decoration: none; color: inherit; }
   line-height: 1.4;
 }
 
-/* Right: imagen de fondo */
+/* Right: slider automático */
 .inicio-right {
   position: relative;
   overflow: hidden;
   background: var(--black-mid);
 }
-.inicio-bg-img {
+.inicio-slider {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.inicio-slides {
+  display: flex;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.77,0,0.18,1);
+}
+.inicio-slide {
+  min-width: 100%;
+  height: 100%;
+}
+.inicio-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
   opacity: 0.85;
-  transition: transform 8s ease;
-}
-.inicio-right:hover .inicio-bg-img {
-  transform: scale(1.03);
 }
 /* Gradient overlay */
 .inicio-right::before {
@@ -760,16 +796,16 @@ a { text-decoration: none; color: inherit; }
   color: var(--white);
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 20px;
-  border-radius: 40px;
+  gap: 12px;
+  padding: 16px 28px;
+  border-radius: 50px;
   box-shadow: 0 4px 20px rgba(37,211,102,0.4);
   font-family: var(--font-title);
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   transition: transform var(--transition), box-shadow var(--transition);
 }
-.whatsapp-float img { width: 22px; height: 22px; object-fit: contain; }
+.whatsapp-float img { width: 30px; height: 30px; object-fit: contain; }
 .whatsapp-float:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 28px rgba(37,211,102,0.5);
