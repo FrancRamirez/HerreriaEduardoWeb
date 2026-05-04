@@ -427,6 +427,40 @@ a { text-decoration: none; color: inherit; }
 }
 .trab-dot.active { background: var(--yellow); }
 
+/* Label de categoría por página */
+.trab-categoria {
+  font-family: var(--font-display);
+  font-size: 28px;
+  letter-spacing: 3px;
+  color: var(--yellow);
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* Item vacío / próximamente */
+.trab-item--empty {
+  border: 2px dashed #333;
+  background: transparent;
+  cursor: default;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.trab-item--empty:hover {
+  transform: none;
+  border-color: #333;
+}
+.trab-info--empty {
+  border-top: none;
+  justify-content: center;
+}
+.trab-info--empty span {
+  color: var(--gray);
+  font-size: 18px;
+}
+
 /* ══════════════════════════════════
    SOBRE NOSOTROS
    ══════════════════════════════════ */
