@@ -32,6 +32,17 @@ document.querySelectorAll('.nav-link').forEach(a => {
   a.addEventListener('click', () => navLinks.classList.remove('open'));
 });
 
+/* ── SLIDER AUTOMÁTICO INICIO-RIGHT ── */
+const inicioSlides = document.getElementById('inicioSlides');
+if (inicioSlides) {
+  let inicioIndex = 0;
+  const inicioTotal = inicioSlides.children.length;
+  setInterval(() => {
+    inicioIndex = (inicioIndex + 1) % inicioTotal;
+    inicioSlides.style.transform = `translateX(-${inicioIndex * 100}%)`;
+  }, 10000);
+}
+
 /* ── TRABAJOS SLIDER ── */
 let trabPage = 0;
 const trabTrack = document.getElementById('trabajosTrack');
