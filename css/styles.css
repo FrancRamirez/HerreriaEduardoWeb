@@ -590,11 +590,7 @@ a { text-decoration: none; color: inherit; }
    ══════════════════════════════════ */
 .section-contacto {
   background: var(--black);
-<<<<<<< HEAD
   padding: 240px 24px;
-=======
-  padding: 80px 24px;
->>>>>>> 0bbbcbba6ddcc5800b1419f2a91abff9d9414188
   border-top: 3px solid var(--yellow);
 }
 .contacto-inner {
@@ -744,11 +740,7 @@ a { text-decoration: none; color: inherit; }
 .footer {
   background: var(--black-soft);
   border-top: 3px solid var(--yellow);
-<<<<<<< HEAD
   padding: 120px 24px;
-=======
-  padding: 28px 24px;
->>>>>>> 0bbbcbba6ddcc5800b1419f2a91abff9d9414188
 }
 .footer-inner {
   max-width: 1100px;
@@ -775,19 +767,11 @@ a { text-decoration: none; color: inherit; }
 .footer-copy strong { color: var(--white-off); }
 .footer-socials {
   display: flex;
-<<<<<<< HEAD
   gap: 16px;
 }
 .footer-socials a {
   width: 58px;
   height: 58px;
-=======
-  gap: 10px;
-}
-.footer-socials a {
-  width: 38px;
-  height: 38px;
->>>>>>> 0bbbcbba6ddcc5800b1419f2a91abff9d9414188
   border-radius: 50%;
   background: var(--black-mid);
   border: 2px solid #333;
@@ -797,11 +781,7 @@ a { text-decoration: none; color: inherit; }
   overflow: hidden;
   transition: border-color var(--transition);
 }
-<<<<<<< HEAD
 .footer-socials a img { width: 32px; height: 32px; object-fit: contain; }
-=======
-.footer-socials a img { width: 20px; height: 20px; object-fit: contain; }
->>>>>>> 0bbbcbba6ddcc5800b1419f2a91abff9d9414188
 .footer-socials a:hover { border-color: var(--yellow); }
 
 /* ══════════════════════════════════
