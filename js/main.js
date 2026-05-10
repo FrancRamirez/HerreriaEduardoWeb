@@ -11,7 +11,7 @@ window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 10);
 
   // Highlight active nav link
-  const sections = ['inicio', 'trabajos', 'nosotros', 'contacto', 'resenas'];
+  const sections = ['inicio', 'trabajos', 'externos', 'nosotros', 'contacto', 'resenas'];
   let current = '';
   sections.forEach(id => {
     const el = document.getElementById(id);
