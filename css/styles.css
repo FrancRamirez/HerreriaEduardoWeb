@@ -385,9 +385,19 @@ a { text-decoration: none; color: inherit; }
 }
 .trab-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 24px;
   padding: 8px 0;
+  justify-content: center;
+  max-width: 100%;
+}
+
+/* Cuando hay 3 o menos items, las columnas no se estiran */
+.trab-grid:has(> :nth-child(1):last-child),
+.trab-grid:has(> :nth-child(2):last-child),
+.trab-grid:has(> :nth-child(3):last-child) {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
+  justify-content: center;
 }
 
 .trab-item {
