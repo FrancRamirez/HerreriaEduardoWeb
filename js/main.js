@@ -11,7 +11,7 @@ window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 10);
 
   // Highlight active nav link
-  const sections = ['inicio', 'trabajos', 'nosotros', 'contacto'];
+  const sections = ['inicio', 'trabajos', 'nosotros', 'contacto', 'resenas'];
   let current = '';
   sections.forEach(id => {
     const el = document.getElementById(id);
@@ -84,31 +84,85 @@ document.querySelectorAll('.trab-item--video').forEach(item => {
   item.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
 });
 
-/* ── LIGHTBOX ── */
-const lightbox      = document.getElementById('lightbox');
-const lightboxImg   = document.getElementById('lightboxImg');
-const lightboxVideo = document.getElementById('lightboxVideo');
-const lightboxVSrc  = document.getElementById('lightboxVSrc');
-const lightboxClose = document.getElementById('lightboxClose');
+/* ── VIDEO HOVER EN EXTERNOS ── */
+document.querySelectorAll('.externo-item.trab-item--video').forEach(item => {
+  const video = item.querySelector('video');
+  if (!video) return;
+  item.addEventListener('mouseenter', () => video.play());
+  item.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
+});
 
-function openLightbox(src, type) {
+/* ── LIGHTBOX ── */
+const lightbox        = document.getElementById('lightbox');
+const lightboxImg     = document.getElementById('lightboxImg');
+const lightboxVideo   = document.getElementById('lightboxVideo');
+const lightboxVSrc    = document.getElementById('lightboxVSrc');
+const lightboxClose   = document.getElementById('lightboxClose');
+const lightboxPrev    = document.getElementById('lightboxPrev');
+const lightboxNext    = document.getElementById('lightboxNext');
+const lightboxContent = document.querySelector('.lightbox-content');
+
+// Estado de navegación del lightbox
+let lbSlides  = [];  // array de {type, src}
+let lbCurrent = 0;
+
+function buildSlideFromEl(slideEl) {
+  const img     = slideEl.querySelector('img');
+  const videoEl = slideEl.querySelector('video');
+  if (videoEl) {
+    const src = videoEl.querySelector('source')?.getAttribute('src') || videoEl.getAttribute('src');
+    return { type: 'video', src };
+  } else if (img) {
+    return { type: 'image', src: img.getAttribute('src') };
+  }
+  return null;
+}
+
+function renderLightboxSlide(index) {
+  const slide = lbSlides[index];
+  if (!slide) return;
+
   lightboxImg.style.display   = 'none';
   lightboxVideo.style.display = 'none';
   lightboxVideo.pause();
   lightboxVSrc.src = '';
   lightboxVideo.load();
 
-  if (type === 'video') {
+  const prevGallery = lightboxContent.querySelector('.lightbox-gallery');
+  if (prevGallery) prevGallery.remove();
+
+  if (slide.type === 'video') {
     lightboxVideo.style.display = 'block';
-    lightboxVSrc.src = src;
+    lightboxVSrc.src = slide.src;
     lightboxVideo.load();
     lightboxVideo.play().catch(() => {});
   } else {
     lightboxImg.style.display = 'block';
-    lightboxImg.src = src;
+    lightboxImg.src = slide.src;
   }
+
+  // Mostrar/ocultar flechas
+  const multi = lbSlides.length > 1;
+  lightboxPrev.classList.toggle('visible', multi);
+  lightboxNext.classList.toggle('visible', multi);
+}
+
+function openLightbox(src, type, slides, startIndex) {
+  if (slides && slides.length) {
+    lbSlides  = slides;
+    lbCurrent = startIndex || 0;
+  } else {
+    lbSlides  = [{ type, src }];
+    lbCurrent = 0;
+  }
+  renderLightboxSlide(lbCurrent);
   lightbox.classList.add('active');
   document.body.style.overflow = 'hidden';
+}
+
+function lbNavigate(dir) {
+  lbCurrent = (lbCurrent + dir + lbSlides.length) % lbSlides.length;
+  renderLightboxSlide(lbCurrent);
 }
 
 function closeLightbox() {
@@ -117,28 +171,96 @@ function closeLightbox() {
   lightboxVSrc.src = '';
   lightboxVideo.load();
   lightboxImg.src = '';
+  lightboxPrev.classList.remove('visible');
+  lightboxNext.classList.remove('visible');
+  lbSlides  = [];
+  lbCurrent = 0;
   document.body.style.overflow = '';
 }
 
 lightboxClose?.addEventListener('click', closeLightbox);
+lightboxPrev?.addEventListener('click', e => { e.stopPropagation(); lbNavigate(-1); });
+lightboxNext?.addEventListener('click', e => { e.stopPropagation(); lbNavigate(1); });
 lightbox?.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+document.addEventListener('keydown', e => {
+  if (!lightbox.classList.contains('active')) return;
+  if (e.key === 'Escape')       closeLightbox();
+  if (e.key === 'ArrowLeft')    lbNavigate(-1);
+  if (e.key === 'ArrowRight')   lbNavigate(1);
+});
 
-// Bind click on each trab-item
-document.querySelectorAll('.trab-item').forEach(item => {
+// Bind click en trab-items normales
+document.querySelectorAll('.trab-item:not(.trab-item--slider)').forEach(item => {
   item.addEventListener('click', () => {
-    const src  = item.dataset.src;
     const type = item.dataset.type;
+    const src  = item.dataset.src;
     if (src) openLightbox(src, type);
   });
 });
-// Also bind btn-ver
-document.querySelectorAll('.btn-ver').forEach(btn => {
+
+// btn-ver en items normales
+document.querySelectorAll('.trab-item:not(.trab-item--slider) .btn-ver').forEach(btn => {
   btn.addEventListener('click', e => {
     e.stopPropagation();
     const item = btn.closest('.trab-item');
     const src  = item?.dataset.src;
     const type = item?.dataset.type;
+    if (src) openLightbox(src, type);
+  });
+});
+
+/* ── MINI-SLIDERS EN TRAB-ITEMS ── */
+document.querySelectorAll('.trab-item--slider').forEach(item => {
+  const track  = item.querySelector('.trab-slider-track');
+  const slides = track ? Array.from(track.children) : [];
+  const dotsEl = item.querySelector('.trab-slider-dots');
+  const prev   = item.querySelector('.trab-slider-prev');
+  const next   = item.querySelector('.trab-slider-next');
+  const btnVer = item.querySelector('.btn-ver');
+  let current  = 0;
+
+  if (!slides.length) return;
+
+  // Crear dots
+  slides.forEach((_, i) => {
+    const dot = document.createElement('span');
+    dot.className = 'trab-slider-dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', e => { e.stopPropagation(); goTo(i); });
+    dotsEl.appendChild(dot);
+  });
+
+  function goTo(index) {
+    current = (index + slides.length) % slides.length;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dotsEl.querySelectorAll('.trab-slider-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  prev?.addEventListener('click', e => { e.stopPropagation(); goTo(current - 1); });
+  next?.addEventListener('click', e => { e.stopPropagation(); goTo(current + 1); });
+
+  // Construir array de slides para el lightbox
+  function getAllSlides() {
+    return slides.map(s => buildSlideFromEl(s)).filter(Boolean);
+  }
+
+  // Abrir lightbox con todos los slides y posicionado en el actual
+  function openCurrent(e) {
+    e.stopPropagation();
+    openLightbox(null, null, getAllSlides(), current);
+  }
+
+  item.querySelector('.trab-slider')?.addEventListener('click', openCurrent);
+  btnVer?.addEventListener('click', openCurrent);
+});
+
+
+// Bind click en externos
+document.querySelectorAll('.externo-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const src  = item.dataset.src;
+    const type = item.dataset.type;
     if (src) openLightbox(src, type);
   });
 });
