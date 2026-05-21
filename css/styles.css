@@ -922,8 +922,26 @@ a { text-decoration: none; color: inherit; }
 @media (max-width: 480px) {
   .trab-grid { grid-template-columns: 1fr; }
   .porque-grid { grid-template-columns: 1fr 1fr; }
-  .inicio-features { gap: 12px; }
-  .feat-item { min-width: 90px; }
+  .inicio-features {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .feat-item {
+    min-width: unset;
+    max-width: 260px;
+    width: 100%;
+    flex-direction: row;
+    text-align: left;
+    gap: 16px;
+  }
+  .feat-icon {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+  }
+  .feat-title { font-size: 18px; }
+  .feat-sub   { font-size: 15px; }
 }
 
 /* ══════════════════════════════════
