@@ -264,3 +264,32 @@ document.querySelectorAll('.externo-item').forEach(item => {
     if (src) openLightbox(src, type);
   });
 });
+
+/* ── SLIDER DE COLABORACIONES (EXTERNOS) ── */
+const externosTrack = document.getElementById('externosTrack');
+const externosTotal = externosTrack ? externosTrack.children.length : 0;
+let externosPage = 0;
+
+function updateExternosDots() {
+  document.querySelectorAll('.externos-dot').forEach((dot, i) => {
+    dot.classList.toggle('active', i === externosPage);
+  });
+}
+
+window.externosGo = function(index) {
+  externosPage = index;
+  externosTrack.style.transform = `translateX(-${externosPage * 100}%)`;
+  updateExternosDots();
+};
+
+document.getElementById('externosprev')?.addEventListener('click', () => {
+  externosPage = (externosPage - 1 + externosTotal) % externosTotal;
+  externosTrack.style.transform = `translateX(-${externosPage * 100}%)`;
+  updateExternosDots();
+});
+
+document.getElementById('externosnext')?.addEventListener('click', () => {
+  externosPage = (externosPage + 1) % externosTotal;
+  externosTrack.style.transform = `translateX(-${externosPage * 100}%)`;
+  updateExternosDots();
+});

@@ -377,30 +377,73 @@
     <h2 class="section-title">Trabajos Externos</h2>
     <p class="externos-sub">Colaboraciones y proyectos realizados junto a otras empresas</p>
 
-    <!-- Colaboración 1: El Luchador -->
-    <div class="externos-collab">
-      <h3 class="externos-collab-title">El Luchador</h3>
-      <div class="externos-grid">
-        <div class="externo-item trab-item--video" data-src="assets/video/ElLuchador_Video_1.mp4" data-type="video">
-          <video muted loop playsinline preload="metadata">
-            <source src="assets/video/ElLuchador_Video_1.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <div class="externo-item trab-item--video" data-src="assets/video/ElLuchador_Video_2.mp4" data-type="video">
-          <video muted loop playsinline preload="metadata">
-            <source src="assets/video/ElLuchador_Video_2.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <div class="externo-item" data-src="assets/images/El_Luchador_3.jpeg" data-type="image">
-          <img src="assets/images/El_Luchador_3.jpeg" alt="El Luchador" />
-        </div>
-        <div class="externo-item" data-src="assets/images/El_Luchador_1.jpeg" data-type="image">
-          <img src="assets/images/El_Luchador_1.jpeg" alt="El Luchador" />
-        </div>
-        <div class="externo-item" data-src="assets/images/El_Luchador_2.jpeg" data-type="image">
-          <img src="assets/images/El_Luchador_2.jpeg" alt="El Luchador" />
+    <div class="externos-slider-wrapper">
+      <button class="externos-arrow externos-arrow-left" id="externosprev" aria-label="Anterior">&#9664;</button>
+
+      <div class="externos-viewport">
+        <div class="externos-track" id="externosTrack">
+
+          <!-- Colaboración 1: El Luchador -->
+          <div class="externos-collab">
+            <h3 class="externos-collab-title">El Luchador</h3>
+            <div class="externos-grid">
+              <div class="externo-item trab-item--video" data-src="assets/video/ElLuchador_Video_1.mp4" data-type="video">
+                <video muted loop playsinline preload="metadata">
+                  <source src="assets/video/ElLuchador_Video_1.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <div class="externo-item trab-item--video" data-src="assets/video/ElLuchador_Video_2.mp4" data-type="video">
+                <video muted loop playsinline preload="metadata">
+                  <source src="assets/video/ElLuchador_Video_2.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <div class="externo-item" data-src="assets/images/El_Luchador_3.jpeg" data-type="image">
+                <img src="assets/images/El_Luchador_3.jpeg" alt="El Luchador" />
+              </div>
+              <div class="externo-item" data-src="assets/images/El_Luchador_1.jpeg" data-type="image">
+                <img src="assets/images/El_Luchador_1.jpeg" alt="El Luchador" />
+              </div>
+              <div class="externo-item" data-src="assets/images/El_Luchador_2.jpeg" data-type="image">
+                <img src="assets/images/El_Luchador_2.jpeg" alt="El Luchador" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Colaboración 2: ASOKO TEMPO S.A. -->
+          <div class="externos-collab">
+            <h3 class="externos-collab-title">ASOKO TEMPO S.A.</h3>
+            <div class="externos-grid">
+              <div class="externo-item" data-src="assets/images/ASOKO_1.png" data-type="image">
+                <img src="assets/images/ASOKO_1.png" alt="ASOKO TEMPO - Frente premium 1" />
+              </div>
+              <div class="externo-item" data-src="assets/images/ASOKO_2.png" data-type="image">
+                <img src="assets/images/ASOKO_2.png" alt="ASOKO TEMPO - Frente premium 2" />
+              </div>
+            </div>
+            <div class="externos-desc">
+              <p class="externos-desc-title">Nuevo frente premium para Asoko Tempo ✔️🔥</p>
+              <p>Un trabajo pensado para modernizar por completo la imagen del local, combinando diseño, amplitud visual y terminaciones de primera calidad.</p>
+              <p>Fabricamos e instalamos este frente vidriado con perfilería reforzada, logrando una estética moderna, elegante y profesional que destaca desde la calle.</p>
+              <ul class="externos-desc-list">
+                <li>✔️ Mayor luminosidad</li>
+                <li>✔️ Diseño moderno</li>
+                <li>✔️ Estructura reforzada</li>
+                <li>✔️ Colocación completa</li>
+              </ul>
+              <p class="externos-desc-gracias">Gracias Asoko Tempo por confiar en nuestro trabajo ⚒️</p>
+              <p class="externos-desc-firma"><strong>Herrería Eduardo</strong> — Calidad y detalles que hacen la diferencia.</p>
+            </div>
+          </div>
+
         </div>
       </div>
+
+      <button class="externos-arrow externos-arrow-right" id="externosnext" aria-label="Siguiente">&#9654;</button>
+    </div>
+
+    <div class="externos-dots" id="externosDots">
+      <span class="externos-dot active" onclick="externosGo(0)"></span>
+      <span class="externos-dot" onclick="externosGo(1)"></span>
     </div>
 
   </section>
