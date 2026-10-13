@@ -1220,6 +1220,29 @@ a { text-decoration: none; color: inherit; }
   font-style: normal;
 }
 
+.externos-desc-tags {
+  font-size: 16px !important;
+  color: var(--yellow) !important;
+  opacity: 0.85;
+  line-height: 1.8 !important;
+  word-break: break-word;
+}
+
+/* Video vertical único (9:16), centrado */
+.externos-grid--single {
+  grid-template-columns: minmax(0, 340px);
+  justify-content: center;
+}
+.externo-item--vertical {
+  aspect-ratio: 9 / 16;
+}
+@media (max-width: 768px) {
+  .externos-grid.externos-grid--single { grid-template-columns: minmax(0, 340px); }
+}
+@media (max-width: 480px) {
+  .externos-grid.externos-grid--single { grid-template-columns: minmax(0, 100%); }
+}
+
 @media (max-width: 768px) {
   .externos-desc {
     padding: 20px 18px;
