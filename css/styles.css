@@ -1309,3 +1309,172 @@ a { text-decoration: none; color: inherit; }
   transition: background var(--transition);
 }
 .externos-dot.active { background: var(--yellow); }
+
+
+/* ══════════════════════════════════
+   MEJORAS: hero meta, empresas, presupuesto, opiniones
+   ══════════════════════════════════ */
+.nav-link { padding: 8px 12px; font-size: 17px; }
+.inicio-meta {
+  font-family: var(--font-title);
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--yellow);
+  text-align: center;
+}
+
+.section-empresas {
+  background: var(--black);
+  padding: 80px 24px;
+  border-top: 3px solid var(--yellow);
+}
+.empresas-sub {
+  font-size: 18px;
+  color: var(--gray);
+  text-align: center;
+  max-width: 720px;
+  margin: -32px auto 48px;
+  line-height: 1.6;
+}
+.empresas-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.empresa-card {
+  background: var(--black-mid);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border-bottom: 4px solid var(--yellow);
+  cursor: pointer;
+  transition: transform var(--transition);
+}
+.empresa-card:hover { transform: translateY(-4px); }
+.empresa-media { aspect-ratio: 4 / 3; overflow: hidden; background: var(--black-soft); }
+.empresa-media img,
+.empresa-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.empresa-body { padding: 18px 20px 22px; }
+.empresa-body h3 {
+  font-family: var(--font-title);
+  font-size: 22px;
+  color: var(--yellow);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.empresa-body p { font-size: 16px; line-height: 1.6; color: var(--gray-light); }
+.empresas-cta { display: flex; justify-content: center; margin-top: 48px; }
+
+.presupuesto-box {
+  max-width: 760px;
+  margin: 0 auto 100px;
+  text-align: center;
+}
+.presupuesto-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  text-align: left;
+  margin-top: 8px;
+}
+.presupuesto-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--font-title);
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  color: var(--white-off);
+}
+.presupuesto-form input,
+.presupuesto-form select,
+.presupuesto-form textarea {
+  font-family: var(--font-body);
+  font-size: 16px;
+  padding: 12px 14px;
+  background: var(--black-mid);
+  color: var(--white);
+  border: 1px solid #333;
+  border-radius: var(--radius);
+}
+.presupuesto-form input:focus,
+.presupuesto-form select:focus,
+.presupuesto-form textarea:focus { outline: 2px solid var(--yellow); border-color: var(--yellow); }
+.presupuesto-full { grid-column: 1 / -1; }
+.presupuesto-form button { cursor: pointer; border: none; justify-self: center; }
+
+.resenas-sub {
+  font-size: 18px;
+  color: var(--gray);
+  text-align: center;
+  margin-top: -32px;
+  margin-bottom: 40px;
+}
+.section-contacto { padding-top: 100px; }
+
+@media (max-width: 1100px) {
+  .nav-link { padding: 8px 8px; font-size: 15px; }
+  .empresas-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .nav-link { font-size: 18px; padding: 8px 18px; }
+  .presupuesto-form { grid-template-columns: 1fr; }
+  .presupuesto-box { margin-bottom: 64px; }
+}
+@media (max-width: 480px) {
+  .empresas-grid { grid-template-columns: 1fr; }
+}
+
+/* ══════════════════════════════════
+   AJUSTES MÓVIL — INICIO
+   ══════════════════════════════════ */
+@media (max-width: 768px) {
+  .section-inicio { min-height: auto; grid-template-columns: minmax(0, 1fr); }
+  .inicio-left, .inicio-right { min-width: 0; }
+  .inicio-left {
+    margin-top: 0;
+    padding: 40px 20px 44px;
+    gap: 16px;
+  }
+  .inicio-tagline { font-size: 16px; letter-spacing: 1.5px; }
+  .inicio-title { font-size: clamp(56px, 18vw, 96px); }
+  .inicio-desc { font-size: 17px; line-height: 1.6; max-width: 340px; text-wrap: balance; }
+  .inicio-desc br { display: none; }
+  .inicio-meta {
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 320px;
+    text-wrap: balance;
+  }
+
+  /* Características: icono a la izquierda, título + descripción apilados */
+  .inicio-features { align-items: stretch; gap: 14px; width: 100%; max-width: 340px; margin-top: 4px; }
+  .feat-item {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    grid-template-areas: "icon title" "icon sub";
+    column-gap: 14px;
+    row-gap: 2px;
+    align-items: center;
+    text-align: left;
+    max-width: none;
+    width: 100%;
+  }
+  .feat-icon { grid-area: icon; width: 48px; height: 48px; }
+  .feat-title { grid-area: title; font-size: 17px; line-height: 1.2; align-self: end; }
+  .feat-sub { grid-area: sub; font-size: 14px; color: var(--gray-light); align-self: start; }
+
+  /* Botones apilados a todo el ancho */
+  .inicio-cta { flex-direction: column; align-items: stretch; width: 100%; max-width: 340px; gap: 12px; }
+  .btn-cta { text-align: center; font-size: 17px; padding: 14px 16px; white-space: normal; }
+
+  .inicio-right { height: 260px; }
+}
+@media (max-width: 480px) {
+  .nav-inner { padding-left: 16px; padding-right: 16px; }
+  .whatsapp-float { right: 12px; bottom: 12px; }
+}
+.inicio-meta span { white-space: nowrap; }

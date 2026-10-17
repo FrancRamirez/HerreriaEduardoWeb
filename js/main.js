@@ -11,7 +11,7 @@ window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 10);
 
   // Highlight active nav link
-  const sections = ['inicio', 'trabajos', 'externos', 'nosotros', 'contacto', 'resenas'];
+  const sections = ['inicio', 'trabajos', 'empresas', 'externos', 'nosotros', 'contacto', 'resenas'];
   let current = '';
   sections.forEach(id => {
     const el = document.getElementById(id);
@@ -292,4 +292,31 @@ document.getElementById('externosnext')?.addEventListener('click', () => {
   externosPage = (externosPage + 1) % externosTotal;
   externosTrack.style.transform = `translateX(-${externosPage * 100}%)`;
   updateExternosDots();
+});
+
+
+/* ── OBRAS PARA EMPRESAS: lightbox + video hover ── */
+document.querySelectorAll('.empresa-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const src = card.dataset.src;
+    if (src) openLightbox(src, card.dataset.type);
+  });
+  const video = card.querySelector('video');
+  if (video) {
+    card.addEventListener('mouseenter', () => video.play().catch(() => {}));
+    card.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
+  }
+});
+
+/* ── FORMULARIO DE PRESUPUESTO → WHATSAPP ── */
+document.getElementById('presupuestoForm')?.addEventListener('submit', e => {
+  e.preventDefault();
+  const f = e.target;
+  const nombre  = f.nombre.value.trim();
+  const tipo    = f.tipo.value;
+  const zona    = f.zona.value.trim();
+  const mensaje = f.mensaje.value.trim();
+  let texto = `Hola Eduardo, soy ${nombre}. Quiero pedir un presupuesto para: ${tipo}. Zona de la obra: ${zona}.`;
+  if (mensaje) texto += ` Detalles: ${mensaje}`;
+  window.open('https://wa.me/5491136327334?text=' + encodeURIComponent(texto), '_blank', 'noopener');
 });

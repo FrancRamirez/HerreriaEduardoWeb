@@ -31,10 +31,11 @@
       <div class="nav-links">
         <a href="#inicio" class="nav-link active">Inicio</a>
         <a href="#trabajos" class="nav-link">Trabajos</a>
+        <a href="#empresas" class="nav-link">Empresas</a>
         <a href="#externos" class="nav-link">Colaboración</a>
-        <a href="#nosotros" class="nav-link">Sobre nosotros</a>
-        <a href="#contacto" class="nav-link">Contacto</a>
-        <a href="#resenas" class="nav-link">Reseñas</a>
+        <a href="#nosotros" class="nav-link">Quiénes somos</a>
+        <a href="#contacto" class="nav-link">Presupuesto</a>
+        <a href="#resenas" class="nav-link">Opiniones</a>
       </div>
       <div class="nav-right">
         <img src="assets/images/Whatsapp.png" alt="WA" class="nav-wa-icon" />
@@ -56,6 +57,7 @@
         Portones, rejas, parrillas y estructuras a medida<br>
         con materiales de primera y terminaciones que duran toda la vida.
       </p>
+      <p class="inicio-meta"><span>Fabricación a medida</span> · <span>Instalación en obra</span> · <span>Desde 2014 en Gral. Pacheco</span></p>
       <div class="inicio-features">
         <div class="feat-item">
           <div class="feat-icon">
@@ -80,8 +82,8 @@
         </div>
       </div>
       <div class="inicio-cta">
-        <a href="#trabajos" class="btn-cta btn-cta--primary">Mirá nuestros trabajos</a>
-        <a href="#contacto" class="btn-cta btn-cta--secondary">Contáctanos ya</a>
+        <a href="#contacto" class="btn-cta btn-cta--primary">Pedí tu presupuesto</a>
+        <a href="#trabajos" class="btn-cta btn-cta--secondary">Mirá nuestros trabajos</a>
       </div>
     </div>
     <div class="inicio-right">
@@ -292,19 +294,24 @@
                   <button class="btn-ver">Ver más</button>
                 </div>
               </div>
-              <div class="trab-item trab-item--video" data-src="assets/video/Techo_corredizo_1.mp4" data-type="video">
-                <video muted loop playsinline preload="metadata">
-                  <source src="assets/video/Techo_corredizo_1.mp4" type="video/mp4" />
-                </video>
-                <div class="trab-info">
-                  <span>Techo corredizo</span>
-                  <button class="btn-ver">Ver más</button>
+              <div class="trab-item trab-item--slider" data-type="slider">
+                <div class="trab-slider">
+                  <div class="trab-slider-track">
+                    <div class="trab-slider-slide">
+                      <video muted loop playsinline preload="metadata" poster="assets/images/Techo_corredizo_1_Poster.jpg">
+                        <source src="assets/video/Techo_corredizo_1.mp4" type="video/mp4" />
+                      </video>
+                    </div>
+                    <div class="trab-slider-slide">
+                      <video muted loop playsinline preload="metadata" poster="assets/images/Techo_corredizo_2_Poster.jpg">
+                        <source src="assets/video/Techo_corredizo_2.mp4" type="video/mp4" />
+                      </video>
+                    </div>
+                  </div>
+                  <button class="trab-slider-prev" aria-label="Anterior">&#8249;</button>
+                  <button class="trab-slider-next" aria-label="Siguiente">&#8250;</button>
+                  <div class="trab-slider-dots"></div>
                 </div>
-              </div>
-              <div class="trab-item trab-item--video" data-src="assets/video/Techo_corredizo_2.mp4" data-type="video">
-                <video muted loop playsinline preload="metadata">
-                  <source src="assets/video/Techo_corredizo_2.mp4" type="video/mp4" />
-                </video>
                 <div class="trab-info">
                   <span>Techo corredizo</span>
                   <button class="btn-ver">Ver más</button>
@@ -444,6 +451,49 @@
     </div>
   </section>
 
+  <!-- ══ OBRAS PARA EMPRESAS ══ -->
+  <section class="section-empresas" id="empresas">
+    <h2 class="section-title">Obras para empresas</h2>
+    <p class="empresas-sub">Soluciones en hierro para constructoras, arquitectos y comercios: del diseño a la instalación en obra.</p>
+    <div class="empresas-grid">
+      <div class="empresa-card" data-src="assets/images/ASOKO_1.png" data-type="image">
+        <div class="empresa-media"><img src="assets/images/ASOKO_1.png" alt="Frente comercial vidriado" /></div>
+        <div class="empresa-body">
+          <h3>Frentes comerciales</h3>
+          <p>Frentes vidriados con perfilería reforzada, fabricados e instalados de punta a punta.</p>
+        </div>
+      </div>
+      <div class="empresa-card empresa-card--video" data-src="assets/video/Refuerzo_estructural.mp4" data-type="video">
+        <div class="empresa-media">
+          <video muted loop playsinline preload="metadata" poster="assets/images/Refuerzo_estructural_Poster.jpg">
+            <source src="assets/video/Refuerzo_estructural.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="empresa-body">
+          <h3>Refuerzos estructurales</h3>
+          <p>Refuerzos con vigas IPN y ejecución cuidadosa para estructuras firmes y seguras.</p>
+        </div>
+      </div>
+      <div class="empresa-card" data-src="assets/images/Galpones.png" data-type="image">
+        <div class="empresa-media"><img src="assets/images/Galpones.png" alt="Galpón metálico" /></div>
+        <div class="empresa-body">
+          <h3>Galpones</h3>
+          <p>Estructuras metálicas para galpones y espacios de trabajo.</p>
+        </div>
+      </div>
+      <div class="empresa-card" data-src="assets/images/Puerta_Industrial.png" data-type="image">
+        <div class="empresa-media"><img src="assets/images/Puerta_Industrial.png" alt="Puerta industrial" /></div>
+        <div class="empresa-body">
+          <h3>Estructuras industriales</h3>
+          <p>Puertas, portones y estructuras industriales a medida.</p>
+        </div>
+      </div>
+    </div>
+    <div class="empresas-cta">
+      <a href="https://wa.me/5491136327334?text=Hola%20Eduardo%2C%20quiero%20pedir%20un%20presupuesto%20para%20una%20obra%20de%20mi%20empresa." class="btn-cta btn-cta--primary" target="_blank" rel="noopener">Pedir presupuesto para mi obra</a>
+    </div>
+  </section>
+
   <!-- ══ TRABAJOS EXTERNOS ══ -->
   <section class="section-externos" id="externos">
     <h2 class="section-title">Trabajos Externos</h2>
@@ -549,11 +599,11 @@
     <div class="nosotros-inner">
       <div class="nosotros-block">
         <h3>¿Quiénes somos?</h3>
-        <p>Somos apasionados del metal y la transformación. Con años de experiencia en el oficio, nuestro taller nació con el propósito de fusionar la técnica tradicional de la herrería con las necesidades del diseño moderno. No solo trabajamos con hierro; creamos piezas que aportan seguridad, estilo y carácter a cada espacio.</p>
+        <p>Somos un taller de herrería con base en Gral. Pacheco, Buenos Aires, trabajando desde 2014. Fabricamos a medida en nuestro taller y realizamos la instalación en obra, fusionando la técnica tradicional de la herrería con las necesidades del diseño moderno. No solo trabajamos con hierro; creamos piezas que aportan seguridad, estilo y carácter a cada espacio.</p>
       </div>
       <div class="nosotros-block">
         <h3>¿Qué hacemos?</h3>
-        <p>Nos dedicamos a la fabricación de estructuras metálicas a medida, desde mobiliario de diseño y objetos decorativos hasta soluciones arquitectónicas complejas. Cada proyecto es único: escuchamos tus ideas y las materializamos con precisión milimétrica.</p>
+        <p>Nos dedicamos a la fabricación de estructuras metálicas a medida, desde mobiliario de diseño y objetos decorativos hasta soluciones arquitectónicas complejas. Cada proyecto es único: relevamos la medida, diseñamos la solución, fabricamos e instalamos, para particulares, comercios y empresas.</p>
       </div>
       <div class="nosotros-block">
         <h3>Nuestro compromiso:</h3>
@@ -595,12 +645,44 @@
 
   <!-- ══ CONTACTO + UBICACIÓN + MÉTODO DE PAGO ══ -->
   <section class="section-contacto" id="contacto">
+    <div class="presupuesto-box" id="presupuesto">
+      <h2 class="contacto-title">Contacto y presupuestos</h2>
+      <p class="contacto-sub">Contanos tu proyecto y recibí un presupuesto personalizado.</p>
+      <form class="presupuesto-form" id="presupuestoForm">
+        <label>Nombre
+          <input type="text" name="nombre" required autocomplete="name" />
+        </label>
+        <label>Tipo de trabajo
+          <select name="tipo" required>
+            <option value="">Elegí una opción</option>
+            <option>Portón</option>
+            <option>Reja</option>
+            <option>Puerta</option>
+            <option>Parrilla / frente de parrilla</option>
+            <option>Pérgola</option>
+            <option>Techo corredizo</option>
+            <option>Escalera / baranda</option>
+            <option>Refuerzo estructural</option>
+            <option>Obra para empresa / comercio</option>
+            <option>Otro</option>
+          </select>
+        </label>
+        <label>Zona de la obra
+          <input type="text" name="zona" placeholder="Ej: Gral. Pacheco" required />
+        </label>
+        <label class="presupuesto-full">Contanos tu proyecto (medidas aproximadas, materiales, plazos)
+          <textarea name="mensaje" rows="4"></textarea>
+        </label>
+        <button type="submit" class="btn-cta btn-cta--primary presupuesto-full">Pedir presupuesto por WhatsApp</button>
+      </form>
+    </div>
+
     <div class="contacto-inner">
 
       <!-- Contacto -->
       <div class="contacto-col contacto-col--contact">
         <h2 class="contacto-title">Contactanos</h2>
-        <p class="contacto-sub">¿Querés negociar? Contactanos y responderemos a la brevedad.</p>
+        <p class="contacto-sub">Escribinos por el medio que prefieras y te respondemos a la brevedad.</p>
         <div class="contacto-btns">
           <a href="https://wa.me/5491136327334" class="btn-wa" target="_blank" rel="noopener">
             <img src="assets/images/Whatsapp_2.png" alt="" /> WhatsApp
@@ -654,7 +736,8 @@
 
   <!-- ══ RESEÑAS ══ -->
   <section class="section-resenas" id="resenas">
-    <h2 class="section-title">Reseñas</h2>
+    <h2 class="section-title">Opiniones de clientes</h2>
+    <p class="resenas-sub">Lo que dicen quienes ya confiaron en nuestro trabajo.</p>
     <div class="resenas-inner">
       <script src="https://elfsightcdn.com/platform.js" async></script>
       <div class="elfsight-app-dcd91115-e7c1-4893-9c3c-e625283291e6" data-elfsight-app-lazy></div>
